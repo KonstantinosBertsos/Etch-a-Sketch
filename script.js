@@ -2,6 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const gridContainer = document.querySelector(".gridContainer");
     const btnRef = document.querySelector("button");
+    const black = document.querySelector(".colorBlack");
+    const red = document.querySelector(".colorRed");
+    const blue = document.querySelector(".colorBlue");
+    const green = document.querySelector(".colorGreen");
+    const yellow = document.querySelector(".colorYellow"); 
+    const eraser = document.querySelector(".eraser");
+    const rgb = document.querySelector(".rgb");
+
+    let colorPicked;
 
     btnRef.addEventListener("click", () => {
         let canvasSize = prompt ("Choose how many squares per side you want your Grind to have");
@@ -22,8 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 newGridCanvas.style.height =  `${divDimension}px`;
                 newGridCanvas.style.width =   `${divDimension}px`;
                     newGridCanvas.addEventListener("mouseover", () => {
-                    newGridCanvas.style.backgroundColor = "red";
-                    });
+
+                        if (colorPicked === "random" ) {
+                            newGridCanvas.style.backgroundColor = randomRGB();
+                        } else {
+                            newGridCanvas.style.backgroundColor = colorPicked;
+                        }
+                    
+                       });
                 gridContainer.append(newGridCanvas);
 
                 console.log(canvasSize);
@@ -35,13 +50,61 @@ document.addEventListener("DOMContentLoaded", () => {
         
     });
 
+    function randomRGB (){
+        let red = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        return  `rgb(${red}, ${green}, ${blue})`;
+    };
 
+    black.addEventListener("click", () => {
+        colorPicked = "black";
+    });
+
+    red.addEventListener("click", () => {
+        colorPicked = "red";
+    });
+
+    blue.addEventListener("click", () => {
+        colorPicked = "blue";
+    });
+    green.addEventListener("click", () => {
+        colorPicked = "rgba(84, 167, 6, 0.856)";
+    });
+    green.addEventListener("click", () => {
+        colorPicked = "rgba(84, 167, 6, 0.856)";
+    });
+    yellow.addEventListener("click", () => {
+        colorPicked = "rgb(241, 245, 5)";
+    });
+    eraser.addEventListener("click", ()=> {
+        colorPicked = "white";
+    });
+    rgb.addEventListener("click", ()=> {
+        colorPicked = "random";
+    });
+    
+
+
+    
+    
     for( let i = 0; i < 256;  i++){   
         const grid = document.createElement("div");
         grid.classList.add("grid-item");
             grid.addEventListener("mouseover", () => {
-            grid.style.backgroundColor = "red";
-            });
+                if (colorPicked === "random" ) {
+                    
+                    grid.style.backgroundColor = randomRGB();
+                } else {
+                    grid.style.backgroundColor = colorPicked;
+                }
+            
+               });
+            /*red.addEventListener("click", () => {
+                grid.addEventListener("mouseover", () => {
+                    grid.style.backgroundColor = "red";
+                    });
+            }); */    
         gridContainer.append(grid);
     }
 });

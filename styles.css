@@ -22,3 +22,50 @@ button{
     color: aliceblue;
     border: none;
 }
+.colorContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.colorBlack, .colorRed, .colorBlue, .colorGreen, .colorYellow{
+    height: 50px;
+    width: 50px;
+}
+.colorBlack{
+    background-color: black;
+    text-indent: -9999px;
+    border-radius: 20px;
+}
+.colorRed{
+    background-color: red;
+    text-indent: -9999px;
+    border-radius: 20px;
+}
+.colorBlue{
+    background-color: blue;
+    text-indent: -9999px;
+    border-radius: 20px;
+}
+.colorGreen{
+    background-color: rgba(84, 167, 6, 0.856);
+    text-indent: -9999px;
+    border-radius: 20px;
+}
+.colorYellow{
+    background-color: rgb(241, 245, 5);
+    text-indent: -9999px;
+    border-radius: 20px;
+}
+.rgb{
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 50px;
+    width: 50px;
+}
+.eraser{
+    height: 75px;
+    width: 50px;
+    border-radius: 20px;
+    border: 2px solid black;
+    background-color: beige;
+}
